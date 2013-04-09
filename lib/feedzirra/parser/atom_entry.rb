@@ -7,7 +7,7 @@ module Feedzirra
       include FeedEntryUtilities
       
       element :title
-      element :link, :as => :url, :value => :href, :with => {:type => "text/html", :rel => "alternate"}
+      element :link, :as => :url, :class => AtomLink
       element :name, :as => :author
       element :content
       element :summary
@@ -22,7 +22,7 @@ module Feedzirra
       element :updated
       element :modified, :as => :updated
       elements :category, :as => :categories, :value => :term
-      elements :link, :as => :links, :value => :href
+      elements :link, :as => :links, :class => AtomLink
 
       def url
         @url ||= links.first

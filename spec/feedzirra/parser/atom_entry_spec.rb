@@ -12,11 +12,11 @@ describe Feedzirra::Parser::AtomEntry do
   end
 
   it "should parse the url" do
-    @entry.url.should == "http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html"
+    @entry.url.to_s.should == "http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html"
   end
 
   it "should parse the url even when" do
-    Feedzirra::Parser::Atom.parse(load_sample("atom_with_link_tag_for_url_unmarked.xml")).entries.first.url.should == "http://www.innoq.com/blog/phaus/2009/07/ja.html"
+    Feedzirra::Parser::Atom.parse(load_sample("atom_with_link_tag_for_url_unmarked.xml")).entries.first.url.to_s.should == "http://www.innoq.com/blog/phaus/2009/07/ja.html"
   end
 
   it "should parse the author" do
@@ -83,4 +83,16 @@ describe Feedzirra::Parser::AtomEntry do
     @entry.title.should == "Foobar"
   end
 
+  describe "parsed links" do
+    subject(:links) { @entry.links }
+
+    it { should have(3).links }
+
+    describe "The first link" do
+      subject(:link) { links.first }
+
+      its(:rel)  { should eql('alternate') }
+      its(:href) { should eql('http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html') }
+    end
+  end
 end

@@ -9,7 +9,7 @@ module Feedzirra
       element :subtitle, :as => :description
       element :link, :as => :url, :value => :href, :with => {:type => "text/html"}
       element :link, :as => :feed_url, :value => :href, :with => {:type => "application/atom+xml"}
-      elements :link, :as => :links, :value => :href
+      elements :link, :as => :links, :class => Feedzirra::Parser::AtomLink
       elements :entry, :as => :entries, :class => AtomEntry
 
       def self.able_to_parse?(xml) #:nodoc:

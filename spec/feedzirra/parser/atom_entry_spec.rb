@@ -12,7 +12,7 @@ describe Feedzirra::Parser::AtomEntry do
   end
 
   it "should parse the url" do
-    @entry.url.to_s.should == "http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html"
+    @entry.url.to_s.should == "http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html?param=1&param=2"
   end
 
   it "should parse the url even when" do
@@ -92,7 +92,7 @@ describe Feedzirra::Parser::AtomEntry do
       subject(:link) { links.first }
 
       its(:rel)  { should eql('alternate') }
-      its(:href) { should eql('http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html') }
+      its(:href) { should eql('http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html?param=1&param=2') }
     end
   end
 end

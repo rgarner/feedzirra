@@ -13,6 +13,7 @@ module Feedzirra
     autoload :GoogleDocsAtomEntry, 'feedzirra/parser/google_docs_atom_entry'
 
     autoload :AtomLink,            'feedzirra/parser/atom_link'
+    autoload :AtomContent,         'feedzirra/parser/atom_content'
     autoload :Atom,                'feedzirra/parser/atom'
     autoload :AtomEntry,           'feedzirra/parser/atom_entry'
     autoload :AtomFeedBurner,      'feedzirra/parser/atom_feed_burner'

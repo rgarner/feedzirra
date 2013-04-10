@@ -9,7 +9,7 @@ module Feedzirra
       element :title
       element :link, :as => :url, :class => AtomLink
       element :name, :as => :author
-      element :content
+      element :content, :class => AtomContent
       element :summary
 
       element :"media:content", :as => :image, :value => :url

@@ -23,8 +23,13 @@ describe Feedzirra::Parser::AtomEntry do
     @entry.author.should == "AWS Editor"
   end
 
-  it "should parse the content" do
-    @entry.content.should == sample_atom_entry_content
+  describe "The content" do
+    subject { @entry.content }
+
+    it         { should be_a(Feedzirra::Parser::AtomContent)}
+    its(:type) { should eql('html') }
+    its(:to_s) { should eql(sample_atom_entry_content) }
+    its(:body) { should eql(sample_atom_entry_content) }
   end
 
   it "should provide a summary" do

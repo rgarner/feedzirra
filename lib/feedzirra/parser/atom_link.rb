@@ -13,6 +13,10 @@ module Feedzirra
       def to_s
         href
       end
+
+      def to_str
+        to_s
+      end
     end
   end
 end

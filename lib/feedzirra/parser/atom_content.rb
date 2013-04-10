@@ -8,6 +8,14 @@ module Feedzirra
       def to_s
         body
       end
+
+      def to_str
+        to_s
+      end
+
+      def +(other)
+        self.to_s + other.to_s
+      end
     end
   end
 end

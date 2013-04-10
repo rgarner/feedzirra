@@ -16,7 +16,7 @@ describe Feedzirra::Parser::Atom do
   end
   
   describe "parsing" do
-    before(:each) do
+    before(:all) do
       @feed = Feedzirra::Parser::Atom.parse(sample_atom_feed)
     end
     
@@ -32,6 +32,10 @@ describe Feedzirra::Parser::Atom do
       @feed.url.should == "http://aws.typepad.com/aws/"
     end
     
+    it "should parse the feed url" do
+      @feed.feed_url.should == "http://aws.typepad.com/aws/atom.xml"
+    end
+
     it "should parse the url even when it doesn't have the type='text/html' attribute" do
       Feedzirra::Parser::Atom.parse(load_sample("atom_with_link_tag_for_url_unmarked.xml")).url.should == "http://www.innoq.com/planet/"
     end
@@ -41,7 +45,7 @@ describe Feedzirra::Parser::Atom do
     end
     
     it "should parse the feed_url" do
-      @feed.feed_url.should == "http://aws.typepad.com/aws/atom.xml"
+      @feed.feed_url.to_s.should == "http://aws.typepad.com/aws/atom.xml"
     end
     
     it "should parse entries" do

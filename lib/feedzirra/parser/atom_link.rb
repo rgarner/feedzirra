@@ -4,6 +4,7 @@ module Feedzirra
       include SAXMachine
       attribute :href, :as => :escaped_href
       attribute :rel
+      attribute :type
 
       def href
         CGI.unescapeHTML escaped_href

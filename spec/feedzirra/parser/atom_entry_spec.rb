@@ -11,8 +11,12 @@ describe Feedzirra::Parser::AtomEntry do
     @entry.title.should == "AWS Job: Architect & Designer Position in Turkey"
   end
 
-  it "should parse the url" do
-    @entry.url.to_s.should == "http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html?param=1&param=2"
+  describe "The url" do
+    subject { @entry.url }
+
+    its(:to_s) { should eql("http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html?param=1&param=2") }
+    its(:rel)  { should eql("alternate") }
+    its(:type) { should eql("text/html") }
   end
 
   it "should parse the url even when" do

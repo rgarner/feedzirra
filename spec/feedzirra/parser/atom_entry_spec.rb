@@ -102,6 +102,7 @@ describe Feedzirra::Parser::AtomEntry do
 
       its(:rel)  { should eql('alternate') }
       its(:href) { should eql('http://aws.typepad.com/aws/2009/01/aws-job-architect-designer-position-in-turkey.html?param=1&param=2') }
+      its(:title) { should eql('Bunnies') }
     end
   end
 end

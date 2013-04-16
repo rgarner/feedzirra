@@ -5,6 +5,7 @@ module Feedzirra
       attribute :href, :as => :escaped_href
       attribute :rel
       attribute :type
+      attribute :title
 
       def href
         CGI.unescapeHTML escaped_href
